@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @curso.nome %>
+</p>
+
+<%= link_to 'Editar', edit_curso_path(@curso), :class => "btn btn-warning" %> |
+<%= link_to 'Voltar', cursos_path, :class => "btn btn-primary" %>

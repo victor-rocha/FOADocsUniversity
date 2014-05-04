@@ -1,0 +1,42 @@
+<br>
+<%= form_for @aluno,  html: {class: "form-horizontal", role: "form"} do |f| %>
+<% if @aluno.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+  <ul>
+    <% @aluno.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="well clearfix">
+  <div class="form-group">
+    <%= f.label :nome, :class => "col-sm-2 control-label" %>
+    <div class="col-xs-4">
+      <%= f.text_field :nome, :placeholder => "Nome", :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :login ,'Matrícula', :class => "col-sm-2 control-label" %>
+    <div class="col-xs-4">
+      <%= f.text_field :login, :placeholder => "Matrícula", :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :senha, :class => "col-sm-2 control-label" %>
+    <div class="col-xs-4">
+      <%= f.text_field :senha, :placeholder => "Senha", :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :curso_id, :class => "col-sm-2 control-label" %>
+    <div class="col-xs-4">
+      <%= f.collection_select :curso_id, Curso.order(:nome), :id, :nome, {prompt: "Selecione um curso"}, {class: "form-control"} %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Salvar', class: "btn btn-success pull-right" %>
+  </div>
+  <% end %>
+</div>

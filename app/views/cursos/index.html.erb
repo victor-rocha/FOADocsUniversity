@@ -1,0 +1,27 @@
+<h1>Cursos</h1>
+<br>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th width="75%">Nome</th>
+      <th width="25%">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cursos.each do |curso| %>
+    <tr>
+      <td><%= curso.nome %></td>
+      <td><%= link_to 'Visualizar', curso, :class => "btn btn-primary" %>
+        <%= link_to 'Editar', edit_curso_path(curso), :class => "btn btn-warning" %>
+      <%= link_to 'Excluir', curso, method: :delete, data: { confirm: 'Tem certeza?' }, :class => "btn btn-danger" %></td>
+    </tr>
+    <% end %>
+    <% if @cursos.size == 0 %>
+    <tr>
+      <td colspan="4">Nenhum registro encontrado</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Novo Curso', new_curso_path, :class => "btn btn-success pull-right" %>

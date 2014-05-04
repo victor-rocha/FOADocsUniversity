@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FOADocsUniversity</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid" style="width: 1024px; margin: 0 auto">
+				<div class="navbar-header">
+					<a href="/" class="navbar-brand">FOADocs University &nbsp;<span class="glyphicon glyphicon-cloud"></span>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="<%= params[:controller] == "alunos" ? "active" : "" %>">
+							<%= link_to "Alunos", alunos_path %>
+						</li>
+						<li class="<%= params[:controller] == "cursos" ? "active" : "" %>">
+							<%= link_to "Cursos", cursos_path %>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div style="width: 1024px; margin: 0 auto">
+			<%= yield %>
+		</div>
+	</body>
+</html>
